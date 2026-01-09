@@ -13,7 +13,7 @@ public class FollowMe : MonoBehaviour
     void Update()
     {
         
-        
+        //circle follows mouse
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         mousePos.z = 0;
         transform.position = mousePos;
