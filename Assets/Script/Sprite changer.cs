@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -5,7 +6,7 @@ public class Spritechanger : MonoBehaviour
 {
     public SpriteRenderer spriteRenderer;
     public Color col;
-    public Sprite[] barrels;
+    public List<Sprite> barrels;
 
     public int randomNumber;
 
@@ -26,8 +27,13 @@ public class Spritechanger : MonoBehaviour
 
         if (Keyboard.current.anyKey.wasPressedThisFrame == true)
         {
+            Debug.Log("Try to change the sprite");
+            if (barrels.Count > 0)
+            {
+                pickARandomSprite();
+            }
             //PickARandomColour();
-            pickARandomSprite();
+           
         }
         // NOT THIS ONE!!! spriteRenderer. sprite .bounds.Contains(mousePos), this is at (0, 0)
         // use this one: spriteRenderer.bounds.Contains(mousePos) it's at the right position
@@ -45,7 +51,11 @@ public class Spritechanger : MonoBehaviour
         spriteRenderer.color = Color.white; 
         }
         
-        
+        if(Mouse.current.leftButton.wasPressedThisFrame == true && barrels.Count > 0)
+        {
+            
+            barrels.RemoveAt(0);
+        }
     }
 
     void PickARandomColour()
@@ -56,7 +66,7 @@ public class Spritechanger : MonoBehaviour
     void pickARandomSprite()
     {
         //get a random number between 0 and 2
-        randomNumber = Random.Range(0, barrels.Length);
+        randomNumber = Random.Range(0, barrels.Count);
         //use it to set the sprite 
        
             spriteRenderer.sprite = barrels[randomNumber];
