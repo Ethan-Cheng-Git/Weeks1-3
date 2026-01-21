@@ -18,10 +18,10 @@ public class Teleport : MonoBehaviour
         transform.position = newPos;
 
         Vector2 screenPos = Camera.main.WorldToScreenPoint(transform.position);
-        if (t >= 3)
-        {
-            newPos = (Vector2)transform.position + Random.;
-            t = 0;
-        }
+       // if (t >= 3)
+       // {
+      //      newPos = (Vector2)transform.position + Random.x;
+      //      t = 0;
+      //  }
     }
 }
