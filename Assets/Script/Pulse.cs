@@ -4,6 +4,7 @@ public class Pulse : MonoBehaviour
 {
     public AnimationCurve curve;
     public float t = 0;
+    public float y;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -20,7 +21,7 @@ public class Pulse : MonoBehaviour
         }
 
 
-        float  y = curve.Evaluate(t);
+        y = curve.Evaluate(t);
         transform.localScale = Vector3.one * curve.Evaluate(t);
     }
 }

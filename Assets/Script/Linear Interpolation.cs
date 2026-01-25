@@ -16,7 +16,7 @@ public class LinearInterpolation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        t += Time.deltaTime * 2;
+        t += Time.deltaTime / 2;
         if (t > 1)
         {
             t = 0;
